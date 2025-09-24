@@ -3,4 +3,7 @@ languageCode = 'en-us'
 title = 'My New Hugo Site'
 theme = "PaperMod"
 publishDir = "docs"
-disableFingerprinting = true
+ 
+[params]
+  [params.assets]
+    disableFingerprinting = true
