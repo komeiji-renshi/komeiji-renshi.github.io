@@ -1,12 +1,13 @@
-## 1.我是一名游戏测试，明天我就要面试腾讯的游戏测试工程师岗位，对方有可能会考我的代码能力，让我做算法题，我的主要使用语言是Python
++++
+date = '2025-09-23T16:59:01+08:00'
+draft = false
+title = 'Python algorithm questions'
 
++++
 
+## 1.我是一名游戏测试，明天我就要面试腾讯的游戏测试工程师岗位，对方有可能会考我的代码能力，让我做算法题，我的主要使用语言是 Python
 
 明天面试的机会很不错！准备一些常见的算法题会对你有帮助。你平时会做哪些类型的算法题呢？比如排序、查找、动态规划、图论这类的，还是有其他专注的领域？如果需要，我可以帮你一起练习。
-
-
-
-
 
 ## 2.我觉得应该就是一些简单或者普通难度的题，你认为我应该准备些什么？
 
@@ -30,22 +31,16 @@
    - 理解状态转移方程、子问题的分解。
 6. **树与图**：
    - 二叉树的遍历（前序、中序、后序），树的深度和广度优先搜索（DFS/BFS）。
-   - 图的遍历、最短路径算法（Dijkstra、Floyd-Warshall等）。
+   - 图的遍历、最短路径算法（Dijkstra、Floyd-Warshall 等）。
 7. **哈希表**：
    - 用哈希表解决重复问题、计数问题等。
    - 示例题目：两数之和、最长子串、字母异位词。
 
-这些题目都是面试中常见的，可以通过LeetCode或者力扣等平台来练习，尽量熟悉一些常见的题型和解法。同时，掌握Python的内置函数，比如`collections.Counter`、`heapq`、`itertools`等也能在面试中节省时间，提升解题效率。
+这些题目都是面试中常见的，可以通过 LeetCode 或者力扣等平台来练习，尽量熟悉一些常见的题型和解法。同时，掌握 Python 的内置函数，比如`collections.Counter`、`heapq`、`itertools`等也能在面试中节省时间，提升解题效率。
 
 你准备得怎么样了？如果有需要，我可以帮你一起复习这些题目。
 
-
-
-
-
-
-
-## 
+##
 
 ## 3.关于数组和字符串，有什么经典的题可以提供给我的吗，给些示例，带讲解
 
@@ -77,7 +72,7 @@ python复制编辑def twoSum(nums, target):
 
 **时间复杂度**：O(n)，其中 `n` 是数组的长度。我们只需要遍历一次数组，并且查找哈希表是 O(1) 的操作。
 
-------
+---
 
 ### 2. **有效的括号 (Valid Parentheses)**
 
@@ -101,7 +96,7 @@ arduino复制编辑输入: s = "(]"
 python复制编辑def isValid(s):
     stack = []
     mapping = {')': '(', '}': '{', ']': '['}
-    
+
     for char in s:
         if char in mapping:
             top_element = stack.pop() if stack else '#'
@@ -109,13 +104,13 @@ python复制编辑def isValid(s):
                 return False
         else:
             stack.append(char)
-    
+
     return not stack
 ```
 
 **时间复杂度**：O(n)，其中 `n` 是字符串的长度。我们只遍历一次字符串。
 
-------
+---
 
 ### 3. **反转字符串 (Reverse String)**
 
@@ -137,7 +132,7 @@ python复制编辑def reverseString(s):
 
 **时间复杂度**：O(n)，其中 `n` 是字符串的长度。
 
-------
+---
 
 ### 4. **最长子串 (Longest Substring Without Repeating Characters)**
 
@@ -158,20 +153,20 @@ python复制编辑def lengthOfLongestSubstring(s):
     char_set = set()
     left = 0
     max_length = 0
-    
+
     for right in range(len(s)):
         while s[right] in char_set:
             char_set.remove(s[left])
             left += 1
         char_set.add(s[right])
         max_length = max(max_length, right - left + 1)
-    
+
     return max_length
 ```
 
 **时间复杂度**：O(n)，其中 `n` 是字符串的长度。每个字符最多被访问两次（一次进入窗口，一次离开窗口）。
 
-------
+---
 
 ### 5. **合并区间 (Merge Intervals)**
 
@@ -190,31 +185,25 @@ lua复制编辑输入: intervals = [[1,3],[2,6],[8,10],[15,18]]
 python复制编辑def merge(intervals):
     if not intervals:
         return []
-    
+
     intervals.sort(key=lambda x: x[0])
     merged = [intervals[0]]
-    
+
     for current in intervals[1:]:
         last = merged[-1]
         if current[0] <= last[1]:  # 发现重叠
             last[1] = max(last[1], current[1])  # 合并
         else:
             merged.append(current)
-    
+
     return merged
 ```
 
 **时间复杂度**：O(n log n)，因为我们首先对区间进行了排序。
 
-------
+---
 
 这些题目涉及了数组和字符串的常见操作和技巧，掌握这些题目会帮助你应对面试中的大部分基础题目。你可以尝试自己解决一下这些题目，或者如果遇到困难，我可以帮你进一步分析解法。
-
-
-
-
-
-
 
 ## 4.关于排序和查找有什么经典例子吗
 
@@ -243,7 +232,7 @@ def twoSum(nums, target):
     nums = [(num, i) for i, num in enumerate(nums)]  # 保留原索引
     nums.sort(key=lambda x: x[0])  # 排序
     left, right = 0, len(nums) - 1
-    
+
     while left < right:
         current_sum = nums[left][0] + nums[right][0]
         if current_sum == target:
@@ -256,7 +245,7 @@ def twoSum(nums, target):
 
 **时间复杂度**：O(n log n)，因为排序的时间复杂度是 O(n log n)，二分查找的时间复杂度是 O(1)。
 
-------
+---
 
 ### 2. **合并两个有序数组 (Merge Sorted Array)**
 
@@ -284,7 +273,7 @@ def merge(nums1, m, nums2, n):
             nums1[k] = nums2[j]
             j -= 1
         k -= 1
-    
+
     while j >= 0:  # 处理 nums2 中剩余的元素
         nums1[k] = nums2[j]
         j -= 1
@@ -293,7 +282,7 @@ def merge(nums1, m, nums2, n):
 
 **时间复杂度**：O(m + n)，遍历两个数组各一次。
 
-------
+---
 
 ### 3. **快速排序 (Quick Sort)**
 
@@ -322,7 +311,7 @@ python复制编辑def quickSort(nums):
 
 **时间复杂度**：平均情况 O(n log n)，最坏情况 O(n^2)。
 
-------
+---
 
 ### 4. **二分查找 (Binary Search)**
 
@@ -355,7 +344,7 @@ python复制编辑def binarySearch(nums, target):
 
 **时间复杂度**：O(log n)，每次查找都减少了一半的区间。
 
-------
+---
 
 ### 5. **寻找旋转排序数组中的最小值 (Find Minimum in Rotated Sorted Array)**
 
@@ -386,7 +375,7 @@ python复制编辑def findMin(nums):
 
 **时间复杂度**：O(log n)，每次查找都缩小一半的区间。
 
-------
+---
 
 ### 6. **寻找第 k 大的元素 (Kth Largest Element in an Array)**
 
@@ -412,11 +401,9 @@ def findKthLargest(nums, k):
 
 **时间复杂度**：O(n log k)，堆操作的时间复杂度是 O(log k)，共执行 n 次操作。
 
-------
+---
 
 这些题目涵盖了排序和查找的常见技巧和算法，掌握它们不仅有助于解决实际问题，也能在面试中展现出你的算法能力。如果有任何题目不理解或者需要更多的讲解，随时告诉我！
-
-
 
 ## 5.关于链表，有什么经典的题可以提供给我的吗，给些示例，带讲解
 
@@ -457,7 +444,7 @@ def reverseList(head):
 
 **时间复杂度**：O(n)，其中 `n` 是链表的长度。我们遍历链表一次，每个节点的指向改变一次。
 
-------
+---
 
 ### 2. **合并两个有序链表 (Merge Two Sorted Lists)**
 
@@ -487,7 +474,7 @@ python复制编辑def mergeTwoLists(l1, l2):
             current.next = l2
             l2 = l2.next
         current = current.next
-    
+
     # 连接剩余部分
     current.next = l1 if l1 else l2
     return dummy.next
@@ -495,7 +482,7 @@ python复制编辑def mergeTwoLists(l1, l2):
 
 **时间复杂度**：O(m + n)，其中 `m` 和 `n` 分别是两个链表的长度。
 
-------
+---
 
 ### 3. **删除链表的倒数第 N 个节点 (Remove Nth Node From End of List)**
 
@@ -517,16 +504,16 @@ python复制编辑def removeNthFromEnd(head, n):
     dummy = ListNode(0)
     dummy.next = head
     fast = slow = dummy
-    
+
     # 快指针先移动 n 步
     for _ in range(n):
         fast = fast.next
-    
+
     # 快慢指针一起移动
     while fast.next:
         fast = fast.next
         slow = slow.next
-    
+
     # 删除节点
     slow.next = slow.next.next
     return dummy.next
@@ -534,7 +521,7 @@ python复制编辑def removeNthFromEnd(head, n):
 
 **时间复杂度**：O(n)，其中 `n` 是链表的长度。我们遍历链表一次。
 
-------
+---
 
 ### 4. **链表是否有环 (Linked List Cycle)**
 
@@ -564,7 +551,7 @@ python复制编辑def hasCycle(head):
 
 **时间复杂度**：O(n)，其中 `n` 是链表的长度。快慢指针最多遍历链表一次。
 
-------
+---
 
 ### 5. **环的入口节点 (Linked List Cycle Start)**
 
@@ -600,7 +587,7 @@ python复制编辑def detectCycle(head):
 
 **时间复杂度**：O(n)，其中 `n` 是链表的长度。我们通过快慢指针遍历链表两次。
 
-------
+---
 
 ### 6. **链表中环的长度 (Linked List Cycle Length)**
 
@@ -629,6 +616,6 @@ python复制编辑def cycleLength(head):
 
 **时间复杂度**：O(n)，其中 `n` 是链表的长度。我们遍历链表至环开始，并且计算环的长度。
 
-------
+---
 
 这些链表的经典题目涉及了从链表的基本操作（反转、合并）到一些较复杂的技巧（快慢指针、环的检测等）。链表在面试中很常见，掌握这些题目不仅能帮助你理解链表的操作，也能帮助你提高在面试中的表现。
